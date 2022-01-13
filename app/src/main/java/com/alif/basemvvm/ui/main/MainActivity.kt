@@ -43,6 +43,9 @@ class MainActivity : AppCompatActivity() {
         NavController.OnDestinationChangedListener { _, destination, _ ->
             invalidateOptionsMenu()
             when (destination.id) {
+                R.id.splashFragment -> {
+                    showToolbar(false)
+                }
                 R.id.detailMuseumFragment -> {
                     showToolbar(true)
                     showToolbarBackArrow(true)

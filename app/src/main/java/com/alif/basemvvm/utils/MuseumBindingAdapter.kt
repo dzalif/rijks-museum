@@ -14,7 +14,6 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
             .load(R.drawable.ic_no_data)
             .apply(
                 RequestOptions()
-                    .placeholder(R.drawable.ic_placeholder)
                     .error(R.drawable.ic_error))
             .into(imgView)
     } else {
@@ -22,7 +21,6 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
             .load(imgUrl)
             .apply(
                 RequestOptions()
-                    .placeholder(R.drawable.ic_placeholder)
                     .error(R.drawable.ic_error))
             .into(imgView)
     }

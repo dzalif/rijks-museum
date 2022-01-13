@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.alif.basemvvm.di.factory.ViewModelFactory
 import com.alif.basemvvm.ui.museum.MuseumViewModel
 import com.alif.basemvvm.ui.museum.detail.DetailMuseumViewModel
+import com.alif.basemvvm.ui.splash.SplashViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -13,6 +14,11 @@ import dagger.multibindings.IntoMap
 abstract class ViewModelModule {
     @Binds
     internal abstract fun bindViewModelFactory(factory: ViewModelFactory) : ViewModelProvider.Factory
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SplashViewModel::class)
+    internal abstract fun providesSplashViewModel(viewModel: SplashViewModel) : ViewModel
 
     @Binds
     @IntoMap

@@ -9,7 +9,9 @@ import com.alif.basemvvm.common.ResultState
 import com.alif.basemvvm.model.data.ArtObject
 import com.alif.basemvvm.repository.MuseumRepository
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import java.io.IOException
+import java.net.UnknownHostException
 import java.util.concurrent.TimeoutException
 import javax.inject.Inject
 
@@ -24,18 +26,19 @@ class MuseumViewModel @Inject constructor(private val repository: MuseumReposito
     private fun getListMuseum() {
         setResultMuseum(ResultState.Loading())
         viewModelScope.launch {
-            val response = repository.getListMuseum()
-            val result = response.artObjects
             try {
+                val response = repository.getListMuseum()
+                val result = response.artObjects
                 if (result.isEmpty()) {
                     setResultMuseum(ResultState.NoData())
                     return@launch
                 }
                 setResultMuseum(ResultState.HasData(result))
             } catch (e: Throwable) {
+                Timber.v("Error message ${e.message}")
                 when (e) {
                     is IOException -> setResultMuseum(ResultState.NoInternetConnection())
-                    is TimeoutException ->  setResultMuseum(ResultState.Error(R.string.timeout))
+                    is TimeoutException -> setResultMuseum(ResultState.Error(R.string.timeout))
                     else -> setResultMuseum(ResultState.Error(R.string.unknown_error))
                 }
             }

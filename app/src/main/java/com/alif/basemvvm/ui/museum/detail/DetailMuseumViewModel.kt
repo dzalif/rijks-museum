@@ -1,6 +1,5 @@
 package com.alif.basemvvm.ui.museum.detail
 
-import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -17,16 +16,13 @@ import javax.inject.Inject
 class DetailMuseumViewModel @Inject constructor(private val repository: MuseumRepository) : BaseViewModel() {
     private val _detail = MutableLiveData<ResultState<ArtObject>>()
     val detail: LiveData<ResultState<ArtObject>> get() = _detail
-    
-    var detailData = ObservableField<ArtObject>()
 
     fun getDetailMuseum(objectNumber: String) {
         setResultMuseum(ResultState.Loading())
         viewModelScope.launch {
-            val response = repository.getDetailMuseum(objectNumber)
-            val result = response.artObject
-            detailData.set(response.artObject)
             try {
+                val response = repository.getDetailMuseum(objectNumber)
+                val result = response.artObject
                 setResultMuseum(ResultState.HasData(result))
             } catch (e: Throwable) {
                 when (e) {

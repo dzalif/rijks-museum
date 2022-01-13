@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/museumFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/museumFragment"
@@ -22,5 +22,13 @@
             android:name="objectNumber"
             android:defaultValue="null"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.alif.basemvvm.ui.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/actionToMuseumFragment"
+            app:destination="@id/museumFragment" />
     </fragment>
 </navigation>
