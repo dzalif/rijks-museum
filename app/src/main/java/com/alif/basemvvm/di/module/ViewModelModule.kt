@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.alif.basemvvm.di.factory.ViewModelFactory
 import com.alif.basemvvm.ui.museum.MuseumViewModel
+import com.alif.basemvvm.ui.museum.detail.DetailMuseumViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -16,5 +17,10 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(MuseumViewModel::class)
-    internal abstract fun providesMoviesViewModel(viewModel: MuseumViewModel) : ViewModel
+    internal abstract fun providesMuseumViewModel(viewModel: MuseumViewModel) : ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailMuseumViewModel::class)
+    internal abstract fun providesDetailMuseumViewModel(viewModel: DetailMuseumViewModel) : ViewModel
 }

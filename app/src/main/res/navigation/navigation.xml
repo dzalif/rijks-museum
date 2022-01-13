@@ -3,11 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/moviesFragment">
+    app:startDestination="@id/museumFragment">
 
     <fragment
-        android:id="@+id/moviesFragment"
+        android:id="@+id/museumFragment"
         android:name="com.alif.basemvvm.ui.museum.MuseumFragment"
-        android:label="fragment_movies"
-        tools:layout="@layout/fragment_museum" />
+        android:label="Rijks Museum"
+        tools:layout="@layout/fragment_museum" >
+        <action
+            android:id="@+id/actionToDetailMuseumFragment"
+            app:destination="@id/detailMuseumFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailMuseumFragment"
+        android:name="com.alif.basemvvm.ui.museum.detail.DetailMuseumFragment"
+        android:label="Detail Museum">
+        <argument
+            android:name="objectNumber"
+            android:defaultValue="null"
+            app:argType="string" />
+    </fragment>
 </navigation>

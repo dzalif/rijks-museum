@@ -19,26 +19,28 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="50dp"
         android:background="@color/colorPrimary">
 
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars"
-            android:contentDescription="@string/ic_avatar" />
+            app:srcCompat="@drawable/ic_account"
+            android:contentDescription="@string/ic_avatar"
+            tools:ignore="VectorDrawableCompat" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text=""
+            android:text="Alif"
             tools:text="Alif"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
@@ -60,12 +62,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/ic_home"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view"
             app:srcCompat="@drawable/ic_home"
-            tools:ignore="VectorDrawableCompat"
-            android:contentDescription="@string/ic_home" />
+            tools:ignore="VectorDrawableCompat" />
 
         <TextView
             android:id="@+id/textView2"
@@ -73,6 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/home"
+            android:textAllCaps="true"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -85,12 +88,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/ic_profile"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
             app:srcCompat="@drawable/ic_account"
-            tools:ignore="VectorDrawableCompat"
-            android:contentDescription="@string/ic_profile" />
+            tools:ignore="VectorDrawableCompat" />
 
         <TextView
             android:id="@+id/textView3"
@@ -98,6 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/profile"
+            android:textAllCaps="true"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/imageView3"
             app:layout_constraintEnd_toEndOf="parent"

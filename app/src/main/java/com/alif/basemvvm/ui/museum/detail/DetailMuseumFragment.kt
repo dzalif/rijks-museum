@@ -1,27 +1,37 @@
-package com.alif.basemvvm.ui.museum
+package com.alif.basemvvm.ui.museum.detail
 
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.fragment.findNavController
+import androidx.appcompat.widget.Toolbar
 import com.alif.basemvvm.R
 import com.alif.basemvvm.base.BaseFragment
 import com.alif.basemvvm.common.ResultState
-import com.alif.basemvvm.databinding.FragmentMuseumBinding
-import com.alif.basemvvm.model.data.ArtObject
+import com.alif.basemvvm.databinding.DetailMuseumFragmentBinding
 
-class MuseumFragment : BaseFragment<FragmentMuseumBinding, MuseumViewModel>(), MuseumAdapter.OnMuseumPressedListener {
-    private val adapter = MuseumAdapter(this)
 
-    override fun getViewModelClass(): Class<MuseumViewModel> = MuseumViewModel::class.java
+class DetailMuseumFragment : BaseFragment<DetailMuseumFragmentBinding, DetailMuseumViewModel>() {
 
-    override fun getLayoutResourceId(): Int = R.layout.fragment_museum
+    private lateinit var objectNumber: String
+    private lateinit var toolbar: Toolbar
+
+    override fun getViewModelClass(): Class<DetailMuseumViewModel> = DetailMuseumViewModel::class.java
+
+    override fun getLayoutResourceId(): Int = R.layout.detail_museum_fragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initRecyclerView()
+        val arguments = DetailMuseumFragmentArgs.fromBundle(requireArguments())
+        objectNumber = arguments.objectNumber
 
-        vm.museum.observe(viewLifecycleOwner, {
+        vm.getDetailMuseum(objectNumber)
+
+        observeData()
+
+    }
+
+    private fun observeData() {
+        vm.detail.observe(viewLifecycleOwner, {
             it?.let {
                 when (it) {
                     is ResultState.Loading -> {
@@ -29,9 +39,9 @@ class MuseumFragment : BaseFragment<FragmentMuseumBinding, MuseumViewModel>(), M
                         showLoading()
                     }
                     is ResultState.HasData -> {
-                        showData()
                         hideLoading()
-                        refreshData(it.data)
+                        showData()
+                        binding.data = it.data
                     }
                     is ResultState.NoData -> {
                         hideData()
@@ -51,20 +61,6 @@ class MuseumFragment : BaseFragment<FragmentMuseumBinding, MuseumViewModel>(), M
                 }
             }
         })
-    }
-
-    override fun onMuseumPressed(art: ArtObject, position: Int) {
-        val action = MuseumFragmentDirections.actionToDetailMuseumFragment()
-        action.objectNumber = art.objectNumber.toString()
-        findNavController().navigate(action)
-    }
-
-    private fun initRecyclerView() {
-        binding.rvMuseum.adapter = adapter
-    }
-
-    private fun refreshData(museums : List<ArtObject>) {
-        adapter.submitList(museums)
     }
 
     private fun showLoading() {

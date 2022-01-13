@@ -38,7 +38,7 @@ abstract class BaseFragment <B: ViewDataBinding, V: ViewModel> : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mViewModel = ViewModelProviders.of(this, viewModelFactory).get(getViewModelClass())
+        mViewModel = ViewModelProviders.of(this, viewModelFactory)[getViewModelClass()]
         mViewDataBinding = DataBindingUtil.inflate(inflater, getLayoutResourceId(), container, false)
         mViewDataBinding.lifecycleOwner = this
         mViewDataBinding.executePendingBindings()
