@@ -1,5 +1,6 @@
 package com.alif.basemvvm.di.module
 
+import com.alif.basemvvm.ui.authentication.login.LoginFragment
 import com.alif.basemvvm.ui.museum.MuseumFragment
 import com.alif.basemvvm.ui.museum.detail.DetailMuseumFragment
 import com.alif.basemvvm.ui.splash.SplashFragment
@@ -16,4 +17,7 @@ abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract fun contributesDetailMuseumFragment(): DetailMuseumFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributesLoginFragment(): LoginFragment
 }

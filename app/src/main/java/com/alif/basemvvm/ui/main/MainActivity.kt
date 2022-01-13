@@ -50,6 +50,10 @@ class MainActivity : AppCompatActivity() {
                     showToolbar(true)
                     showToolbarBackArrow(true)
                 }
+                R.id.loginFragment -> {
+                    showToolbar(false)
+                    showToolbarBackArrow(true)
+                }
                 else -> {
                     showToolbar(true)
                     showMenu()

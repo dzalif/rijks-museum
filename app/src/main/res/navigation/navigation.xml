@@ -30,5 +30,12 @@
         <action
             android:id="@+id/actionToMuseumFragment"
             app:destination="@id/museumFragment" />
+        <action
+            android:id="@+id/actionToLoginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.alif.basemvvm.ui.authentication.login.LoginFragment"
+        android:label="Login" />
 </navigation>

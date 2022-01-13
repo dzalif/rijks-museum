@@ -6,4 +6,11 @@
     <color name="colorBgView">#000000</color>
     <color name="placeholder_color">#dddddd</color>
     <color name="white">#ffffff</color>
+
+    <color name="grey_200">#F5F5F5</color>
+    <color name="grey_300">#E0E0E0</color>
+    <color name="grey_400">#BDBDBD</color>
+    <color name="grey_700">#616161</color>
+    <color name="grey_800">#424242</color>
+    <color name="grey_900">#212121</color>
 </resources>

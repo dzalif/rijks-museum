@@ -28,8 +28,11 @@ class SplashFragment : BaseFragment<SplashFragmentBinding, SplashViewModel>() {
     }
 
     private fun navigateToDestination() {
-        val action = SplashFragmentDirections.actionToMuseumFragment()
+        val action = SplashFragmentDirections.actionToLoginFragment()
         findNavController().navigate(action)
+
+//        val action = SplashFragmentDirections.actionToMuseumFragment()
+//        findNavController().navigate(action)
     }
 
 }
