@@ -1,0 +1,61 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.gradle_version = '3.5.1'
+    ext.kotlin_version = '1.5.0'
+    ext.navigation_component_gradle_plugin_version = '1.0.0'
+    repositories {
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.2.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:$navigation_component_gradle_plugin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    // App dependencies
+    appCompatVersion = '1.4.0'
+    ktxCore = '1.7.0'
+    legacyVersion = '1.0.0'
+    junitVersion = '4.13.1'
+    testVersion = '1.4.0'
+    espressoVersion = '3.4.0'
+    cardVersion = '1.0.0'
+    materialVersion = '1.4.0'
+    recyclerViewVersion = '1.2.1'
+    constraintLayoutVersion = '2.1.2'
+    androidXAnnotations = '1.0.1'
+    navigationVersion = '2.3.5'
+    archLifecycleVersion = '2.2.0-rc02'
+    rxAndroidVersion = '2.1.1'
+    rxJavaVersion = '2.2.9'
+    glideVersion = '4.9.0'
+    dagger_version = '2.35.1'
+    retrofitVersion = '2.6.0'
+    logingVersion = '3.10.0'
+    timber_version = '4.7.1'
+    shimmer_version = '0.5.0'
+    multidex_version = '1.0.3'
+    anko_version = '0.10.8'
+    mockitoVersion = '3.5.13'
+    core_testing_version = '1.1.1'
+    fragment_version = '1.4.0'
+    mockitoTestVersion = '3.5.13'
+    idleResourceVersion = '3.4.0'
+}
