@@ -7,6 +7,7 @@ import com.alif.rijksmuseum.ui.authentication.login.LoginViewModel
 import com.alif.rijksmuseum.ui.authentication.register.RegisterViewModel
 import com.alif.rijksmuseum.ui.museum.MuseumViewModel
 import com.alif.rijksmuseum.ui.museum.detail.DetailMuseumViewModel
+import com.alif.rijksmuseum.ui.profile.ProfileViewModel
 import com.alif.rijksmuseum.ui.splash.SplashViewModel
 import dagger.Binds
 import dagger.Module
@@ -41,4 +42,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(RegisterViewModel::class)
     internal abstract fun providesRegisterViewModel(viewModel: RegisterViewModel) : ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ProfileViewModel::class)
+    internal abstract fun providesProfileViewModel(viewModel: ProfileViewModel) : ViewModel
 }

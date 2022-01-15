@@ -1,5 +1,6 @@
 package com.alif.rijksmuseum.ui.authentication.login
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
@@ -10,6 +11,8 @@ import com.alif.rijksmuseum.databinding.LoginFragmentBinding
 
 class LoginFragment : BaseFragment<LoginFragmentBinding, LoginViewModel>() {
 
+    private lateinit var fragmentCallback: FragmentCallback
+
     override fun getViewModelClass(): Class<LoginViewModel> = LoginViewModel::class.java
 
     override fun getLayoutResourceId(): Int = R.layout.login_fragment
@@ -18,6 +21,11 @@ class LoginFragment : BaseFragment<LoginFragmentBinding, LoginViewModel>() {
         super.onViewCreated(view, savedInstanceState)
 
         observeData()
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        fragmentCallback = context as FragmentCallback
     }
 
     private fun observeData() {
@@ -31,6 +39,7 @@ class LoginFragment : BaseFragment<LoginFragmentBinding, LoginViewModel>() {
                     is ResultState.HasData -> {
                         hideLoading()
                         clearEditText()
+                        refreshMain()
                         snackBar("Login successfully")
                         navigateToHomeFragment()
                     }
@@ -48,6 +57,10 @@ class LoginFragment : BaseFragment<LoginFragmentBinding, LoginViewModel>() {
                 }
             }
         })
+    }
+
+    private fun refreshMain() {
+        fragmentCallback.refreshMain()
     }
 
     private fun hideButton() {

@@ -21,7 +21,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.22000003">
@@ -45,7 +45,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
-                android:hint="@string/please_enter_your_email"
+                android:hint="@string/email"
                 app:errorMessage="@{vm.errorUsername}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -55,9 +55,9 @@
                     android:id="@+id/etUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={vm.username}"
                     android:importantForAutofill="noExcludeDescendants"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:text="@={vm.username}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,10 +79,10 @@
                     android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={vm.password}"
                     android:importantForAutofill="noExcludeDescendants"
                     android:inputType="textPassword"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:text="@={vm.password}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,15 +99,15 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnRegister"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/museum.Button.Rounded"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp"
-                android:visibility="visible"
                 android:onClick="@{() -> fragment.onRegisterPressed()}"
                 android:text="@string/register"
+                android:visibility="visible"
                 app:cornerRadius="@dimen/margin16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -132,9 +132,9 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="32dp"
-                android:visibility="gone"
-                android:textColor="@android:color/holo_red_dark"
                 android:text="@string/please_agree_the_terms_and_conditions"
+                android:textColor="@android:color/holo_red_dark"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/checkBox"

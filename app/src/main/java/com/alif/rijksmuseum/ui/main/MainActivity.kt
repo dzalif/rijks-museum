@@ -14,10 +14,11 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.alif.rijksmuseum.R
 import com.alif.rijksmuseum.databinding.ActivityMainBinding
+import com.alif.rijksmuseum.ui.authentication.login.FragmentCallback
 import com.google.firebase.auth.FirebaseAuth
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), FragmentCallback {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var toolbar: Toolbar
@@ -33,6 +34,18 @@ class MainActivity : AppCompatActivity() {
         getCurrentUser()
 
         initToolbar()
+        drawerNavigation()
+    }
+
+    private fun drawerNavigation() {
+        binding.contentNavigationDrawer.tvProfile.setOnClickListener {
+            navController.navigate(R.id.profileFragment)
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        }
+        binding.contentNavigationDrawer.tvHome.setOnClickListener {
+            navController.navigate(R.id.museumFragment)
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -106,5 +119,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return true
+    }
+
+    override fun refreshMain() {
+        getCurrentUser()
     }
 }

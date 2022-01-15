@@ -1,4 +1,4 @@
-package com.alif.rijksmuseum.ui.authentication.register
+package com.alif.rijksmuseum.ui.profile
 
 import android.os.Bundle
 import android.view.View
@@ -6,25 +6,27 @@ import androidx.navigation.fragment.findNavController
 import com.alif.rijksmuseum.R
 import com.alif.rijksmuseum.base.BaseFragment
 import com.alif.rijksmuseum.common.ResultState
-import com.alif.rijksmuseum.databinding.RegisterFragmentBinding
-import com.alif.rijksmuseum.repository.CheckBoxListener
+import com.alif.rijksmuseum.databinding.ProfileFragmentBinding
+import com.google.firebase.auth.FirebaseAuth
 
-class RegisterFragment : BaseFragment<RegisterFragmentBinding, RegisterViewModel>(), CheckBoxListener {
+class ProfileFragment : BaseFragment<ProfileFragmentBinding, ProfileViewModel>() {
 
-    override fun getViewModelClass(): Class<RegisterViewModel> = RegisterViewModel::class.java
+    private var firebaseAuth = FirebaseAuth.getInstance()
 
-    override fun getLayoutResourceId(): Int = R.layout.register_fragment
+    override fun getViewModelClass(): Class<ProfileViewModel> = ProfileViewModel::class.java
+
+    override fun getLayoutResourceId(): Int = R.layout.profile_fragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        vm.checkBoxListener = this
+        getCurrentUser()
 
         observeData()
     }
 
     private fun observeData() {
-        vm.register.observe(viewLifecycleOwner, {
+        vm.logout.observe(viewLifecycleOwner, {
             it?.let {
                 when (it) {
                     is ResultState.Loading -> {
@@ -32,9 +34,8 @@ class RegisterFragment : BaseFragment<RegisterFragmentBinding, RegisterViewModel
                         hideButton()
                     }
                     is ResultState.HasData -> {
-                        showButton()
                         hideLoading()
-                        clearEditText()
+                        snackBar("Logout successfully")
                         navigateToLoginFragment()
                     }
                     is ResultState.ErrorMessage -> {
@@ -53,12 +54,17 @@ class RegisterFragment : BaseFragment<RegisterFragmentBinding, RegisterViewModel
         })
     }
 
+    private fun navigateToLoginFragment() {
+        val action = ProfileFragmentDirections.actionProfileFragmentToLoginFragment()
+        findNavController().navigate(action)
+    }
+
     private fun hideButton() {
-        binding.btnRegister.visibility = View.INVISIBLE
+        binding.btnLogout.visibility = View.INVISIBLE
     }
 
     private fun showButton() {
-        binding.btnRegister.visibility = View.VISIBLE
+        binding.btnLogout.visibility = View.VISIBLE
     }
 
     fun showLoading() {
@@ -69,22 +75,12 @@ class RegisterFragment : BaseFragment<RegisterFragmentBinding, RegisterViewModel
         binding.progressbar.visibility = View.GONE
     }
 
-    fun onRegisterPressed() {
-        val isChecked = binding.checkBox.isChecked
-        vm.validateRegister(isChecked)
+    private fun getCurrentUser() {
+        val user = firebaseAuth.currentUser
+        binding.tvUserName.text = user?.email
     }
 
-    private fun navigateToLoginFragment() {
-        val action = RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()
-        findNavController().navigate(action)
-    }
-
-    private fun clearEditText() {
-        binding.etUsername.text?.clear()
-        binding.etPassword.text?.clear()
-    }
-
-    override fun onChecked() {
-        binding.errorCheckBox.visibility = View.VISIBLE
+    fun onLogoutPressed() {
+      vm.logout()
     }
 }

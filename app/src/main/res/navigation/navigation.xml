@@ -53,4 +53,12 @@
             android:id="@+id/actionRegisterFragmentToLoginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.alif.rijksmuseum.ui.profile.ProfileFragment"
+        android:label="Profile" >
+        <action
+            android:id="@+id/actionProfileFragmentToLoginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>
