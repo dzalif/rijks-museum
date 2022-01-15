@@ -11,10 +11,10 @@
             type="Boolean" />
         <variable
             name="vm"
-            type="com.alif.basemvvm.ui.splash.SplashViewModel" />
+            type="com.alif.rijksmuseum.ui.splash.SplashViewModel" />
         <variable
             name="fragment"
-            type="com.alif.basemvvm.ui.splash.SplashFragment" />
+            type="com.alif.rijksmuseum.ui.splash.SplashFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

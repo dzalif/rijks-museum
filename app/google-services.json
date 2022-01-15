@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "521825951478",
+    "project_id": "rijks-museum-fe048",
+    "storage_bucket": "rijks-museum-fe048.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521825951478:android:bb2b9a042a3fbb3b0116d7",
+        "android_client_info": {
+          "package_name": "com.alif.rijksmuseum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521825951478-bld9vq0lllvvu306doaur0iv1hjhfisn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABDfHgRmTXDcU7SAikVJe2QPkM1oTP3O4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521825951478-bld9vq0lllvvu306doaur0iv1hjhfisn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

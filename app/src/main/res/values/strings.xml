@@ -11,8 +11,13 @@
     <string name="ic_avatar">ic_ava</string>
     <string name="ic_profile">ic_profile</string>
     <string name="username">Username</string>
+    <string name="please_enter_your_email">Please enter your email</string>
     <string name="login">LOGIN</string>
     <string name="don_t_have_account">Don\'t have account ?</string>
     <string name="register">REGISTER</string>
     <string name="password">Password</string>
+    <string name="empty_username">Username cannot be empty</string>
+    <string name="empty_password">Password cannot be empty</string>
+    <string name="i_aggree_with_terms_and_conditions">I Aggree with Terms and Conditions</string>
+    <string name="please_agree_the_terms_and_conditions">Please agree the terms and conditions</string>
 </resources>

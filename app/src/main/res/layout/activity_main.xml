@@ -7,7 +7,7 @@
     <data>
         <variable
             name="activity"
-            type="com.alif.basemvvm.ui.main.MainActivity" />
+            type="com.alif.rijksmuseum.ui.main.MainActivity" />
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout

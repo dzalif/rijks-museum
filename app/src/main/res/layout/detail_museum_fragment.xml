@@ -11,13 +11,13 @@
             type="Boolean" />
         <variable
             name="vm"
-            type="com.alif.basemvvm.ui.museum.detail.DetailMuseumViewModel" />
+            type="com.alif.rijksmuseum.ui.museum.detail.DetailMuseumViewModel" />
         <variable
             name="fragment"
-            type="com.alif.basemvvm.ui.museum.detail.DetailMuseumFragment" />
+            type="com.alif.rijksmuseum.ui.museum.detail.DetailMuseumFragment" />
         <variable
             name="data"
-            type="com.alif.basemvvm.model.data.ArtObject" />
+            type="com.alif.rijksmuseum.model.data.ArtObject" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

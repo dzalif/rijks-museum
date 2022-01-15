@@ -5,7 +5,7 @@
     <data>
         <variable
             name="data"
-            type="com.alif.basemvvm.model.data.ArtObject" />
+            type="com.alif.rijksmuseum.model.data.ArtObject" />
     </data>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
