@@ -67,7 +67,7 @@ class ProfileFragment : BaseFragment<ProfileFragmentBinding, ProfileViewModel>()
         binding.btnLogout.visibility = View.VISIBLE
     }
 
-    fun showLoading() {
+    private fun showLoading() {
         binding.progressbar.visibility = View.VISIBLE
     }
 
