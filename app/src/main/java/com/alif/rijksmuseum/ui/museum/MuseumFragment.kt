@@ -19,6 +19,8 @@ class MuseumFragment : BaseFragment<FragmentMuseumBinding, MuseumViewModel>(), M
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        vm.getCurrentUser()
+
         initRecyclerView()
 
         vm.museum.observe(viewLifecycleOwner, {

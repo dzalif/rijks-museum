@@ -25,22 +25,22 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_account"
+            android:background="@drawable/ic_ava"
             android:contentDescription="@string/ic_avatar"
             tools:ignore="VectorDrawableCompat" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="Alif"
+            android:text=""
             tools:text="Alif"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"

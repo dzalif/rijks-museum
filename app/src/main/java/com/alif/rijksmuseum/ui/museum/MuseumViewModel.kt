@@ -8,13 +8,14 @@ import com.alif.rijksmuseum.base.BaseViewModel
 import com.alif.rijksmuseum.common.ResultState
 import com.alif.rijksmuseum.model.data.ArtObject
 import com.alif.rijksmuseum.repository.MuseumRepository
+import com.alif.rijksmuseum.repository.UserRepository
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.io.IOException
 import java.util.concurrent.TimeoutException
 import javax.inject.Inject
 
-class MuseumViewModel @Inject constructor(private val repository: MuseumRepository) : BaseViewModel() {
+class MuseumViewModel @Inject constructor(private val repository: MuseumRepository, private val userRepository: UserRepository) : BaseViewModel() {
     private val _museum = MutableLiveData<ResultState<List<ArtObject>>>()
     val museum: LiveData<ResultState<List<ArtObject>>> get() = _museum
 
@@ -46,5 +47,9 @@ class MuseumViewModel @Inject constructor(private val repository: MuseumReposito
 
     private fun setResultMuseum(result: ResultState<List<ArtObject>>) {
         _museum.postValue(result)
+    }
+
+    fun getCurrentUser() {
+
     }
 }

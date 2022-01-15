@@ -41,6 +41,9 @@
         <action
             android:id="@+id/actionToRegisterFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/actionLoginFragmentToMuseumFragment"
+            app:destination="@id/museumFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"

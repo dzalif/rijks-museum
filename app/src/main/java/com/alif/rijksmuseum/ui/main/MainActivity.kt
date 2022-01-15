@@ -1,5 +1,6 @@
 package com.alif.rijksmuseum.ui.main
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -13,6 +14,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.alif.rijksmuseum.R
 import com.alif.rijksmuseum.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var toolbar: Toolbar
     private lateinit var navController: NavController
+    private var firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +30,15 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         navController = Navigation.findNavController(this, R.id.mainContent)
 
+        getCurrentUser()
+
         initToolbar()
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun getCurrentUser() {
+        val user = firebaseAuth.currentUser
+        binding.contentNavigationDrawer.tvUser.text = "Welcome \n${user?.email}"
     }
 
     private fun initToolbar() {
